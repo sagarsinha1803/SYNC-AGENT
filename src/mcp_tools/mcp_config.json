@@ -1,0 +1,52 @@
+{
+    "mcpServers": {
+        "dataflow": {
+            "command": "python",
+            "args": [
+                "src\\mcp_tools\\local_servers\\dataflow.py"
+            ],
+            "transport": "stdio"
+        },
+        "filesystem": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-filesystem",
+                "${MCP_FILESYSTEM_DIR}"
+            ],
+            "transport": "stdio" 
+        },
+        "git": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-git"
+            ],
+            "transport": "stdio"
+        },
+        "github": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "-e",
+                "GITHUB_PERSONAL_ACCESS_TOKEN",
+                "ghcr.io/github/github-mcp-server"
+            ],
+            "env": {
+                "GITHUB_PERSONAL_ACCESS_TOKEN": "${MCP_GITHUB_PAT}"
+            },
+            "transport": "stdio"
+        },
+        "supabase": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@supabase/mcp-server-supabase@latest",
+                "--access-token",
+                "${MCP_SUPABASE_PAT}"
+            ],
+            "transport": "stdio" 
+        }  
+    }
+}

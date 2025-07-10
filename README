@@ -1,0 +1,81 @@
+# SYNC AGENT
+
+SYNC AGENT is an expert data science assistant designed to help users manage and collaborate on data science projects. It leverages advanced LLMs and a set of modular tools to streamline workflows, manage version control, and interact with local and remote resources.
+
+## Features
+
+- **Conversational Data Science Assistant**: Collaborate with an AI agent to incrementally build, analyze, and model data projects.
+- **Project Management**: Create, initialize, and manage projects with a standardized structure.
+- **Dataflow Tools**: Load, query, and manipulate data within project directories.
+- **Filesystem Access**: Securely interact with files in the designated working directory.
+- **Version Control**: Integrated git and GitHub tools for clean, atomic commits and remote repository management.
+- **Extensible Tooling**: Easily add or bind new tools for custom workflows.
+
+
+## Project Structure
+
+```
+.
+├── mcp_client.py
+├── mcp.ipynb
+├── README
+├── requirements.txt
+├── MYPROJ/
+└── src/
+    ├── __init__.py
+    ├── graph.py
+    ├── prompts.py
+    └── mcp_tools/
+        ├── __init__.py
+        ├── config.py
+        ├── mcp_config.json
+        └── local_servers/
+            ├── dataflow.py
+            └── weather.py
+
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.11+
+- Install dependencies listed in `requirements.txt`
+- API keys for OpenAI, GitHub, Supabase, etc. (see `.env`)
+
+### Setup
+
+1. **Clone the repository** and navigate to the project directory.
+2. **Install dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+3. **Configure environment variables** in `.env` (see sample keys in the provided file).
+4. **Run the agent client**:
+    ```sh
+    python mcp_client.py
+    ```
+
+### Usage
+
+- Interact with SYNC AGENT via the command line.
+- Use the provided tools to load data, create projects, and manage files.
+- All project changes are tracked with git for reproducibility.
+
+## Project Philosophy
+
+- **Atomic Commits**: Each change should be a logical, self-contained commit.
+- **Reproducibility**: All data and code changes are versioned and auditable.
+- **Security**: Filesystem access is restricted to the working directory.
+
+## Extending
+
+- Add new tools in `src/mcp_tools/local_servers/`.
+- Update `src/mcp_tools/mcp_config.json` to register new tool servers.
+
+## License
+
+MIT License
+
+---
+
+*SYNC AGENT: Your collaborative data science partner.*
